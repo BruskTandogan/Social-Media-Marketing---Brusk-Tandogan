@@ -1,197 +1,293 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Media Marketing - Brusk Tandogan</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brusk Marketing | Mehr Kunden durch Social Media</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: #f4f7fb;
-      color: #333;
+      background: #0b1220;
+      color: #e5e7eb;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    header {
-      background: linear-gradient(135deg, #007BFF, #00c6ff);
-      color: #fff;
-      padding: 90px 20px;
+    a { text-decoration: none; color: inherit; }
+
+    /* HERO */
+    .hero {
+      padding: 120px 20px;
       text-align: center;
+      background: radial-gradient(circle at top, #1e3a8a, #0b1220);
+      position: relative;
+      overflow: hidden;
     }
 
-    header h1 {
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(59,130,246,0.15);
+      filter: blur(100px);
+      top: -100px;
+      left: -100px;
+    }
+
+    .hero h1 {
       font-size: 3rem;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      animation: fadeUp 0.8s ease;
     }
 
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.95;
-      max-width: 800px;
+    .hero p {
+      max-width: 750px;
       margin: auto;
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      animation: fadeUp 1s ease;
+    }
+
+    .btn, .btn-whatsapp {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      background: #3b82f6;
+    }
+
+    .btn-whatsapp {
+      background: #22c55e;
+    }
+
+    .btn:hover, .btn-whatsapp:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
 
     section {
-      padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
+      padding: 70px 20px;
     }
 
     .card {
-      background: #fff;
-      padding: 30px;
-      margin-bottom: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      background: rgba(17,24,39,0.9);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: all 0.35s ease;
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .highlight {
-      background: linear-gradient(135deg, #28a745, #5dd39e);
-      color: white;
-      text-align: center;
-      padding: 50px;
-      border-radius: 16px;
-      margin-bottom: 40px;
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: rgba(59,130,246,0.3);
     }
 
-    ul { padding-left: 20px; }
-    li { margin-bottom: 10px; }
+    h2 { color: #60a5fa; margin-bottom: 15px; }
 
-    .cta-box {
-      background: #ffffff;
-      padding: 35px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .badge {
+      background: #111827;
+      padding: 18px;
+      border-radius: 14px;
       text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .badge:hover {
+      transform: translateY(-5px);
+      background: #1f2937;
+      border-color: #3b82f6;
+    }
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #1e293b, #0b1220);
+      padding: 60px 20px;
+      border-radius: 18px;
+      margin-top: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     }
 
     input, textarea {
       width: 100%;
-      padding: 14px;
+      padding: 12px;
       margin-top: 10px;
-      margin-bottom: 15px;
       border-radius: 10px;
-      border: 1px solid #ccc;
-      font-family: 'Poppins', sans-serif;
+      border: none;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      transform: scale(1.02);
+      box-shadow: 0 0 0 2px #3b82f6;
     }
 
     button {
-      background: linear-gradient(135deg, #007BFF, #0056b3);
-      color: white;
+      margin-top: 10px;
+      padding: 12px 20px;
+      border-radius: 10px;
       border: none;
-      padding: 14px 25px;
-      border-radius: 8px;
+      background: #3b82f6;
+      color: white;
+      font-weight: 600;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      background: #1a1a1a;
-      color: #fff;
+      padding: 40px;
+      color: #94a3b8;
     }
 
     .legal {
-      background:#fff;
-      padding:30px;
-      margin-top:40px;
-      border-radius:16px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      background: #0f172a;
+      padding: 40px;
+      border-radius: 18px;
+      margin-top: 40px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ANIMATION */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
     }
 
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Mehr Sichtbarkeit durch Social Media</h1>
-  <p>Ich unterstütze Restaurants und kleine Unternehmen dabei, ihre Social-Media-Kanäle sinnvoller zu nutzen und online besser sichtbar zu werden.</p>
-</header>
+  <div class="hero">
+    <h1>Mehr echte Kunden durch Social Media</h1>
+    <p>Ich helfe Restaurants und lokalen Unternehmen dabei, aus Instagram echte Gäste zu machen – nicht nur Likes.</p>
 
-<section>
-
-  <div class="card">
-    <h2>Über mich</h2>
-    <p>Ich bin <strong>Brusk Tandogan</strong>, 19 Jahre alt und im Bereich Social Media Marketing tätig.</p>
-    <p>Ich unterstütze Unternehmen dabei, ihre Online-Präsenz zu verbessern und Social Media gezielt einzusetzen.</p>
-    <p>Zu Beginn arbeite ich auch praktisch mit, um Inhalte und Abläufe besser zu verstehen. Danach liegt der Fokus stärker auf Analyse, Optimierung und gemeinsamen Auswertungen mit den Inhabern.</p>
+    <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
+    <br>
+    <a class="btn-whatsapp" href="https://wa.me/491623073495" target="_blank">WhatsApp schreiben</a>
   </div>
 
-  <div class="card">
-    <h2>Meine Leistungen</h2>
-    <ul>
-      <li>Instagram & Facebook Betreuung</li>
-      <li>Content Unterstützung</li>
-      <li>Optimierung von Social Media Kanälen</li>
-      <li>Community Management</li>
-      <li>Analyse der Reichweite</li>
-    </ul>
-  </div>
+  <section>
 
-  <div class="card">
-    <h2>Warum das wichtig ist</h2>
-    <ul>
-      <li>Kunden informieren sich zuerst online</li>
-      <li>Ohne Social Media verliert man Sichtbarkeit</li>
-      <li>Ein guter Auftritt schafft Vertrauen</li>
-      <li>Mehr Reichweite kann neue Kunden bringen</li>
-    </ul>
-  </div>
+    <div class="card">
+      <h2>Über mich</h2>
+      <p><strong>Brusk Tandogan</strong>, 19 Jahre alt – ich helfe lokalen Unternehmen dabei, Social Media richtig zu nutzen.</p>
+      <p>Ich arbeite praxisnah: erst gemeinsam umsetzen, danach analysieren und verbessern.</p>
+    </div>
 
-  <div class="card">
-    <h2>Angebot</h2>
-    <p>Leistungen werden individuell angepasst.</p>
-    <p><strong>Preis: individuell nach Absprache</strong></p>
-  </div>
+    <div class="card">
+      <h2>Warum ich?</h2>
+      <div class="grid">
+        <div class="badge">Jung & Social Media nah</div>
+        <div class="badge">Praxis statt Theorie</div>
+        <div class="badge">Ehrliche Zusammenarbeit</div>
+        <div class="badge">Fokus auf echte Kunden</div>
+      </div>
+    </div>
 
-  <div class="highlight">
-    <h2>Mehr Sichtbarkeit beginnt mit dem ersten Schritt</h2>
-    <p>Gemeinsam verbessern wir deine Online-Präsenz.</p>
-  </div>
+    <div class="card">
+      <h2>Leistungen</h2>
+      <ul>
+        <li>Instagram & Facebook Betreuung</li>
+        <li>Content & Strategie</li>
+        <li>Analyse & Optimierung</li>
+        <li>Kundenwachstum</li>
+      </ul>
+    </div>
 
-  <div class="cta-box">
-    <h2>📞 Erstgespräch anfragen</h2>
-    <p><strong>Telefon:</strong> 01623073495</p>
-    <form action="mailto:deine@email.de" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="E-Mail" required>
-      <textarea name="message" rows="4" placeholder="Nachricht"></textarea>
-      <button type="submit">Anfrage senden</button>
-    </form>
-  </div>
+    <div class="card">
+      <h2>Warum Social Media wichtig ist</h2>
+      <div class="grid">
+        <div class="badge">Kunden googeln zuerst</div>
+        <div class="badge">Instagram = Vertrauen</div>
+        <div class="badge">Mehr Sichtbarkeit</div>
+        <div class="badge">Konkurrenz ist aktiv</div>
+      </div>
+    </div>
 
-  <div class="legal">
-    <h2>Impressum</h2>
-    <p>Brusk Tandogan<br>Ernst-Reuter Straße 1<br>63457 Hanau<br>Deutschland<br>E-Mail: Brusk.Tandogan@web.de</p>
-  </div>
+    <div class="card">
+      <h2>Beispiel Ergebnis</h2>
+      <p>Demo: Optimierung eines Instagram Profils → bessere Reichweite & mehr Engagement.</p>
+    </div>
 
-  <div class="legal">
-    <h2>Datenschutzerklärung</h2>
-    <p><strong>Präambel:</strong> Diese Datenschutzerklärung informiert über die Verarbeitung personenbezogener Daten.</p>
+    <div class="card">
+      <h2>Angebot</h2>
+      <p>Individuell angepasst je nach Ziel und Unternehmen.</p>
+    </div>
 
-    <p><strong>Verantwortlicher:</strong><br>
-    Brusk Tandogan<br>
-    Ernst-Reuter Straße 1, 63457 Hanau<br>
-    E-Mail: Brusk.Tandogan@web.de</p>
+    <div class="cta" id="kontakt">
+      <h2>📩 Kostenloses Erstgespräch</h2>
+      <p>Ich schaue mir dein Social Media an und gebe dir ehrliche Tipps.</p>
 
-    <p>Wir verarbeiten personenbezogene Daten nur im Rahmen der gesetzlichen Vorschriften (DSGVO).</p>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="E-Mail" required>
+        <textarea rows="4" placeholder="Nachricht"></textarea>
+        <button type="submit">Absenden</button>
+      </form>
 
-    <p><strong>Zwecke:</strong> Kommunikation, Website-Bereitstellung, Verbesserung der Nutzererfahrung.</p>
+      <p style="margin-top:15px;">📞 01623073495</p>
+    </div>
 
-    <p><strong>Rechte:</strong> Auskunft, Löschung, Widerruf und Beschwerderecht.</p>
+    <div class="legal">
+      <h2>Impressum</h2>
+      <p>Brusk Tandogan<br>Ernst-Reuter Straße 1<br>63457 Hanau<br>Deutschland<br><br>E-Mail: Brusk.Tandogan@web.de</p>
+    </div>
 
-    <p><strong>Speicherung:</strong> Daten werden nur so lange gespeichert, wie es notwendig oder gesetzlich vorgeschrieben ist.</p>
-  </div>
+    <div class="legal">
+      <h2>Datenschutzerklärung</h2>
+      <p>Verarbeitung personenbezogener Daten erfolgt gemäß DSGVO nur zur Kontaktaufnahme und Websitebetrieb.</p>
+    </div>
 
-</section>
+  </section>
 
-<footer>
-  <p>© 2026 Brusk Tandogan</p>
-</footer>
+  <footer>
+    © 2026 Brusk Tandogan | Social Media Marketing
+  </footer>
 
 </body>
 </html>
