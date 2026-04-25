@@ -1,293 +1,161 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brusk Marketing | Mehr Kunden durch Social Media</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brusk Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#0f172a,#020617);color:#fff;}
+html{scroll-behavior:smooth;}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+nav{position:fixed;top:0;width:100%;padding:15px 40px;display:flex;justify-content:space-between;background:rgba(15,23,42,0.9);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid rgba(255,255,255,0.05);}
+nav a{margin-left:20px;color:#cbd5f5;text-decoration:none;font-size:0.9rem;}
+nav a:hover{color:#60a5fa;}
 
-    html {
-      scroll-behavior: smooth;
-    }
+.hero{padding:140px 20px 80px;text-align:center;}
+.hero h1{font-size:3rem;background:linear-gradient(90deg,#3b82f6,#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;}
+.hero p{color:#cbd5e1;margin-bottom:30px;max-width:700px;margin-left:auto;margin-right:auto;}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0b1220;
-      color: #e5e7eb;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+.btn{padding:14px 24px;border-radius:12px;background:linear-gradient(90deg,#3b82f6,#22c55e);display:inline-block;font-weight:600;}
 
-    a { text-decoration: none; color: inherit; }
+section{max-width:1100px;margin:auto;padding:80px 20px;}
 
-    /* HERO */
-    .hero {
-      padding: 120px 20px;
-      text-align: center;
-      background: radial-gradient(circle at top, #1e3a8a, #0b1220);
-      position: relative;
-      overflow: hidden;
-    }
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: rgba(59,130,246,0.15);
-      filter: blur(100px);
-      top: -100px;
-      left: -100px;
-    }
+.card{background:rgba(15,23,42,0.8);padding:25px;border-radius:16px;border:1px solid rgba(255,255,255,0.05);transition:0.3s;}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(59,130,246,0.2);}
+.card h3{margin-bottom:10px;color:#60a5fa;}
+.card p{color:#cbd5e1;font-size:0.9rem;}
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      animation: fadeUp 0.8s ease;
-    }
+.list p{margin-bottom:20px;color:#cbd5e1;}
+.list strong{color:#22c55e;}
 
-    .hero p {
-      max-width: 750px;
-      margin: auto;
-      font-size: 1.2rem;
-      color: #cbd5e1;
-      animation: fadeUp 1s ease;
-    }
+.cta{background:linear-gradient(135deg,#1e293b,#020617);padding:40px;border-radius:16px;text-align:center;border:1px solid rgba(255,255,255,0.05);}
 
-    .btn, .btn-whatsapp {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 22px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 1;
-    }
+input,textarea{width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;background:#020617;color:#fff;}
+button{margin-top:10px;padding:12px;width:100%;background:linear-gradient(90deg,#3b82f6,#22c55e);border:none;border-radius:8px;color:#fff;font-weight:600;}
 
-    .btn {
-      background: #3b82f6;
-    }
+footer{padding:40px;text-align:center;color:#94a3b8;font-size:0.8rem;}
 
-    .btn-whatsapp {
-      background: #22c55e;
-    }
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:15px 18px;
+border-radius:50px;
+font-weight:bold;
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+z-index:1000;
+text-decoration:none;
+}
 
-    .btn:hover, .btn-whatsapp:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 70px 20px;
-    }
-
-    .card {
-      background: rgba(17,24,39,0.9);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 18px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      transition: all 0.35s ease;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .card:hover {
-      transform: translateY(-6px) scale(1.01);
-      border-color: rgba(59,130,246,0.3);
-    }
-
-    h2 { color: #60a5fa; margin-bottom: 15px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-
-    .badge {
-      background: #111827;
-      padding: 18px;
-      border-radius: 14px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .badge:hover {
-      transform: translateY(-5px);
-      background: #1f2937;
-      border-color: #3b82f6;
-    }
-
-    .cta {
-      text-align: center;
-      background: linear-gradient(135deg, #1e293b, #0b1220);
-      padding: 60px 20px;
-      border-radius: 18px;
-      margin-top: 40px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    input:focus, textarea:focus {
-      transform: scale(1.02);
-      box-shadow: 0 0 0 2px #3b82f6;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      border: none;
-      background: #3b82f6;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #94a3b8;
-    }
-
-    .legal {
-      background: #0f172a;
-      padding: 40px;
-      border-radius: 18px;
-      margin-top: 40px;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    /* ANIMATION */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .hero p { font-size: 1rem; }
-    }
-
-  </style>
+</style>
 </head>
+
 <body>
 
-  <div class="hero">
-    <h1>Mehr echte Kunden durch Social Media</h1>
-    <p>Ich helfe Restaurants und lokalen Unternehmen dabei, aus Instagram echte Gäste zu machen – nicht nur Likes.</p>
+<nav>
+<div><strong>Brusk Marketing</strong></div>
+<div>
+<a href="#home">Startseite</a>
+<a href="#services">Leistungen</a>
+<a href="#about">Über mich</a>
+<a href="#contact">Kontakt</a>
+<a href="#datenschutz">Datenschutz</a>
+<a href="#impressum">Impressum</a>
+</div>
+</nav>
 
-    <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
-    <br>
-    <a class="btn-whatsapp" href="https://wa.me/491623073495" target="_blank">WhatsApp schreiben</a>
-  </div>
+<div class="hero" id="home">
+<h1>Mehr Kunden durch Social Media</h1>
+<p>Ich helfe Restaurants dabei, ihre Social Media Präsenz gezielt zu verbessern und aus einfachen Profilen echte Kundenmagneten zu machen.</p>
+<a href="#contact" class="btn">Kostenloses Erstgespräch sichern</a>
+</div>
 
-  <section>
+<section id="services">
+<h2>Warum Social Media wichtig ist</h2>
+<div class="grid">
+<div class="card">
+<h3>Mehr Sichtbarkeit</h3>
+<p>Dein Restaurant wird täglich von neuen potenziellen Kunden entdeckt und bleibt langfristig im Gedächtnis.</p>
+</div>
+<div class="card">
+<h3>Mehr Vertrauen</h3>
+<p>Ein professioneller Auftritt sorgt dafür, dass Gäste dich als seriös wahrnehmen und sich eher für dich entscheiden.</p>
+</div>
+<div class="card">
+<h3>Mehr Kunden</h3>
+<p>Guter Content bringt Menschen dazu, dein Restaurant zu besuchen und sich selbst ein Bild zu machen.</p>
+</div>
+<div class="card">
+<h3>Wettbewerbsvorteil</h3>
+<p>Während viele Restaurants Social Media falsch nutzen, kannst du dich klar abheben und dominieren.</p>
+</div>
+</div>
+</section>
 
-    <div class="card">
-      <h2>Über mich</h2>
-      <p><strong>Brusk Tandogan</strong>, 19 Jahre alt – ich helfe lokalen Unternehmen dabei, Social Media richtig zu nutzen.</p>
-      <p>Ich arbeite praxisnah: erst gemeinsam umsetzen, danach analysieren und verbessern.</p>
-    </div>
+<section>
+<h2>Wie ich arbeite</h2>
+<div class="list">
+<p><strong>Analyse:</strong> Ich analysiere euer Profil, erkenne Schwachstellen und finde heraus, wo Potenzial liegt.</p>
+<p><strong>Optimierung:</strong> Wir verbessern gemeinsam Bio, Inhalte und Struktur für maximale Wirkung.</p>
+<p><strong>Umsetzung:</strong> Ich helfe aktiv bei den ersten Schritten, damit ihr sofort Fortschritte seht.</p>
+<p><strong>Auswertung:</strong> Danach analysiere ich Ergebnisse und gebe klare nächste Schritte vor.</p>
+</div>
+</section>
 
-    <div class="card">
-      <h2>Warum ich?</h2>
-      <div class="grid">
-        <div class="badge">Jung & Social Media nah</div>
-        <div class="badge">Praxis statt Theorie</div>
-        <div class="badge">Ehrliche Zusammenarbeit</div>
-        <div class="badge">Fokus auf echte Kunden</div>
-      </div>
-    </div>
+<section id="about">
+<h2>Über mich</h2>
+<div class="list">
+<p>Ich bin Brusk Tandogan, 19 Jahre alt und habe mich darauf spezialisiert, lokale Unternehmen im Bereich Social Media zu unterstützen.</p>
+<p><strong>Praxisnah:</strong> Ich setze Dinge direkt mit euch um, statt nur theoretische Tipps zu geben.</p>
+<p><strong>Einfach:</strong> Klare Strategien ohne unnötige Komplexität.</p>
+<p><strong>Ergebnisorientiert:</strong> Fokus liegt immer auf mehr Kunden, nicht nur auf Likes.</p>
+<p><strong>Individuell:</strong> Jede Strategie wird genau auf euer Restaurant angepasst.</p>
+</div>
+</section>
 
-    <div class="card">
-      <h2>Leistungen</h2>
-      <ul>
-        <li>Instagram & Facebook Betreuung</li>
-        <li>Content & Strategie</li>
-        <li>Analyse & Optimierung</li>
-        <li>Kundenwachstum</li>
-      </ul>
-    </div>
+<section id="contact">
+<div class="cta">
+<h2>Kontakt</h2>
+<p>Schreib mir direkt oder kontaktiere mich über WhatsApp.</p>
+<form onsubmit="sendMail(event)">
+<input type="text" placeholder="Name" required>
+<input type="email" placeholder="E-Mail" required>
+<textarea placeholder="Nachricht"></textarea>
+<button type="submit">Absenden</button>
+</form>
+<p style="margin-top:15px;">📞 01623073495</p>
+</div>
+</section>
 
-    <div class="card">
-      <h2>Warum Social Media wichtig ist</h2>
-      <div class="grid">
-        <div class="badge">Kunden googeln zuerst</div>
-        <div class="badge">Instagram = Vertrauen</div>
-        <div class="badge">Mehr Sichtbarkeit</div>
-        <div class="badge">Konkurrenz ist aktiv</div>
-      </div>
-    </div>
+<section id="datenschutz">
+<h2>Datenschutzerklärung</h2>
+<p>Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Es erfolgt keine Weitergabe an Dritte. Weitere Informationen erhalten Sie auf Anfrage per E-Mail.</p>
+</section>
 
-    <div class="card">
-      <h2>Beispiel Ergebnis</h2>
-      <p>Demo: Optimierung eines Instagram Profils → bessere Reichweite & mehr Engagement.</p>
-    </div>
+<section id="impressum">
+<h2>Impressum</h2>
+<p>Brusk Tandogan<br>Ernst-Reuter Straße 1<br>63457 Hanau<br>E-Mail: Brusk.Tandogan@web.de</p>
+</section>
 
-    <div class="card">
-      <h2>Angebot</h2>
-      <p>Individuell angepasst je nach Ziel und Unternehmen.</p>
-    </div>
+<footer>
+© 2026 Brusk Tandogan
+</footer>
 
-    <div class="cta" id="kontakt">
-      <h2>📩 Kostenloses Erstgespräch</h2>
-      <p>Ich schaue mir dein Social Media an und gebe dir ehrliche Tipps.</p>
+<a class="whatsapp" href="https://wa.me/491623073495" target="_blank">WhatsApp</a>
 
-      <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="E-Mail" required>
-        <textarea rows="4" placeholder="Nachricht"></textarea>
-        <button type="submit">Absenden</button>
-      </form>
-
-      <p style="margin-top:15px;">📞 01623073495</p>
-    </div>
-
-    <div class="legal">
-      <h2>Impressum</h2>
-      <p>Brusk Tandogan<br>Ernst-Reuter Straße 1<br>63457 Hanau<br>Deutschland<br><br>E-Mail: Brusk.Tandogan@web.de</p>
-    </div>
-
-    <div class="legal">
-      <h2>Datenschutzerklärung</h2>
-      <p>Verarbeitung personenbezogener Daten erfolgt gemäß DSGVO nur zur Kontaktaufnahme und Websitebetrieb.</p>
-    </div>
-
-  </section>
-
-  <footer>
-    © 2026 Brusk Tandogan | Social Media Marketing
-  </footer>
+<script>
+function sendMail(e){
+e.preventDefault();
+alert("Danke für deine Anfrage!");
+}
+</script>
 
 </body>
 </html>
